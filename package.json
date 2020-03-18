@@ -1,0 +1,38 @@
+{
+    "name": "corona-chatbot-api",
+    "version": "1.0.0",
+    "description": "API for Corona Chatbot",
+    "main": "/dist/app.js",
+    "scripts": {
+        "test": "mocha -r ts-node/register tst/**/*.[tT]est.ts",
+        "coverage": "nyc -r text -e .ts -x \"*.[tT]est.ts\" npm run test",
+        "webpack": "webpack --config webpack.config.ts",
+        "start": "node ./dist/app.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "firebase": "^7.11.0",
+        "firebase-admin": "^8.10.0",
+        "helmet": "^3.21.3"
+    },
+    "devDependencies": {
+        "@types/cors": "^2.8.6",
+        "@types/dotenv": "^8.2.0",
+        "@types/express": "^4.17.3",
+        "@types/helmet": "0.0.45",
+        "@types/node": "^13.9.1",
+        "@types/webpack": "^4.41.7",
+        "@types/webpack-node-externals": "^1.7.1",
+        "ts-loader": "^6.2.1",
+        "ts-node": "^8.6.2",
+        "ts-node-dev": "^1.0.0-pre.44",
+        "typescript": "^3.8.3",
+        "webpack": "^4.42.0",
+        "webpack-cli": "^3.3.11",
+        "webpack-node-externals": "^1.7.2"
+    }
+}
