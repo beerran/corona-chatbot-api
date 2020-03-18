@@ -1,22 +1,23 @@
 export interface BaseModel {
-    id: string;
+    id?: string;
     createdAt: Date;
     updatedAt: Date;
 }
 
-export interface History {
-    id: string;
+export interface History extends BaseModel {
     model: BaseModel;
 }
 
 export const HistoryConverter = {
-    toFirestore<T extends BaseModel>(modelObject: History): firebase.firestore.DocumentData {
+    toFirestore(modelObject: History): firebase.firestore.DocumentData {
         return modelObject;
     },
-    fromFirestore<T extends BaseModel>(data: firebase.firestore.DocumentData): History {
+    fromFirestore(data: firebase.firestore.DocumentData): History {
         return {
-            id: data.id || null,
-            model: data.model
+            id: data.id,
+            model: data.model,
+            createdAt: data.createdAt || null,
+            updatedAt: data.updatedAt || null
         };
     }
 }
