@@ -16,13 +16,14 @@ export const Converter = {
     fromFirestore(data: firebase.firestore.DocumentData): Suggestion {
         return {
             id: data.id || null,
+            createdAt: data.createdAt || null,
+            updatedAt: data.updatedAt || null,
+            
             sourceId: data.sourceId || null,
             question: data.question || null,
             answer: data.answer || null,
             status: data.status || null,
-            faqId: data.faqId || null,
-            createdAt: data.createdAt || null,
-            updatedAt: data.updatedAt || null
+            faqId: data.faqId || null
         };
     }
 }

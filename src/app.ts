@@ -5,7 +5,7 @@ import helmet from 'helmet';
 
 import { errorHandler } from './middleware/error.middleware';
 import { notFoundHandler } from './middleware/not-found.middleware';
-import { suggestionsRouter } from './routes/suggestion.routes';
+import { categoriesRouter, faqsRouter, questionVariantsRouter, sourcesRouter, suggestionsRouter } from './routes';
 
 declare const module: WebpackHotModule;
 
@@ -22,6 +22,10 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
+app.use('/categories', categoriesRouter);
+app.use('/faqs', faqsRouter);
+app.use('/question-variants', questionVariantsRouter);
+app.use('/sources', sourcesRouter);
 app.use('/suggestions', suggestionsRouter);
 
 app.use(errorHandler);

@@ -10,6 +10,5 @@ export const errorHandler = (
 ) => {
     const status = error.statusCode || 500;
     const message = error.message || "It's not you. It's us. We are having some problems.";
-    console.log(message);
     response.status(status).send(message);
 };
