@@ -1,7 +1,8 @@
-import { BaseModel } from './base-model';
+import { IndexedBaseModel } from './base-model';
 import firebase from 'firebase';
 
-export interface Suggestion extends BaseModel {
+export interface Suggestion extends IndexedBaseModel {
+    index: number;
     sourceId: string;
     question: string;
     answer: string;
@@ -19,6 +20,7 @@ export const Converter = {
             createdAt: data.createdAt || null,
             updatedAt: data.updatedAt || null,
             
+            index: data.index || null,
             sourceId: data.sourceId || null,
             question: data.question || null,
             answer: data.answer || null,
